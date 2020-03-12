@@ -1,0 +1,98 @@
+/*
+ Theme Name:   Underscores Enfant de dieu
+ Theme URI:    http://example.com/twenty-nineteen-child/
+ Description:  Underscores Enfant Theme
+ Author:       Matéo Gomez Lalonde
+ Author URI:   http://example.com
+ Template:     Underscores
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  Underscores Enfant
+*/
+
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+// @import "variables-site/variables-site";
+//@import "mixins/mixins-master";
+
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+//@import "normalize";
+
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+//@import "typography/typography";
+
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+//@import "elements/elements";
+
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+//@import "forms/forms";
+
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+//@import "navigation/navigation";
+
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+//@import "modules/accessibility";
+
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+//@import "modules/alignments";
+
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+//@import "modules/clearings";
+
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+//@import "site/secondary/widgets";
+
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+@import "site/site";
+
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+//@import "modules/infinite-scroll";
+
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+//@import "media/media";

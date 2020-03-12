@@ -1,0 +1,177 @@
+@charset "UTF-8";
+/*
+ Theme Name:   Underscores Enfant de dieu
+ Theme URI:    http://example.com/twenty-nineteen-child/
+ Description:  Underscores Enfant Theme
+ Author:       Matéo Gomez Lalonde
+ Author URI:   http://example.com
+ Template:     Underscores
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  Underscores Enfant
+*/
+/*--------------------------------------------------------------
+>>> TABLE OF CONTENTS:
+----------------------------------------------------------------
+# Normalize
+# Typography
+# Elements
+# Forms
+# Navigation
+	## Links
+	## Menus
+# Accessibility
+# Alignments
+# Clearings
+# Widgets
+# Content
+	## Posts and pages
+	## Comments
+# Infinite scroll
+# Media
+	## Captions
+	## Galleries
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Normalize
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Typography
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Elements
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Forms
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Navigation
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Accessibility
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Alignments
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Clearings
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Widgets
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Content
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+## Posts and pages
+--------------------------------------------------------------*/
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: aliceblue;
+}
+
+.site-header {
+  display: none;
+}
+
+.entry-footer {
+  display: none;
+}
+
+.entry-title {
+  text-align: center;
+}
+
+.globalConteneur {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 2%;
+  margin-top: 2%;
+}
+
+.globalConteneur div {
+  margin-left: 2%;
+}
+
+.globalConteneur img {
+  width: 200px;
+  height: 200px;
+  min-width: 200px;
+  min-height: 200px;
+}
+
+.ConteneurNouvelles {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.ConteneurNouvelles img {
+  width: 100px;
+  height: 100px;
+  min-width: 100px;
+  min-height: 100px;
+}
+
+.tableau-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
+  -ms-grid-rows: (1fr)[31];
+      grid-template-rows: repeat(31, 1fr);
+}
+
+.post-thumbnail {
+  text-align: center;
+}
+
+.wp-block-cgb-block-my-block {
+  background-color: #7c4c9c;
+  color: white;
+}
+
+.sticky {
+  display: block;
+}
+
+.post,
+.page {
+  margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+  display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1.5em 0 0;
+}
+
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+
+/*--------------------------------------------------------------
+## Comments
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Infinite scroll
+--------------------------------------------------------------*/
+/*--------------------------------------------------------------
+# Media
+--------------------------------------------------------------*/
+/*# sourceMappingURL=style.css.map */

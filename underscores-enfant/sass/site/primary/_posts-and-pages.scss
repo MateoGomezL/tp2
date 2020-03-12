@@ -1,0 +1,84 @@
+body{
+	font-family: 'Montserrat', sans-serif;
+	background-color: aliceblue;
+}
+
+.site-header{
+	display: none;
+}
+.entry-footer{
+	display: none;
+}
+
+.entry-title{
+	text-align: center;
+}
+
+.globalConteneur{
+	display: flex;
+	flex-direction: row;
+	margin-left: 2%;
+	margin-top: 2%;
+
+	div{
+		margin-left: 2%;
+	}
+
+	img{
+		width: 200px;
+		height: 200px;
+		min-width: 200px;
+		min-height: 200px;
+	}
+}
+
+.ConteneurNouvelles{
+	display: flex;
+	justify-content: space-between;
+
+	img{
+		width: 100px;
+		height: 100px;
+		min-width: 100px;
+		min-height: 100px;
+	}
+}
+
+.tableau-grid{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: repeat(31, 1fr);
+}
+
+.post-thumbnail{
+    text-align: center;
+}
+
+.wp-block-cgb-block-my-block{
+    background-color: rgb(124, 76, 156);
+    color: white;
+}
+
+.sticky {
+	display: block;
+}
+
+.post,
+.page {
+	margin: 0 0 1.5em;
+}
+
+.updated:not(.published) {
+	display: none;
+}
+
+.page-content,
+.entry-content,
+.entry-summary {
+	margin: 1.5em 0 0;
+}
+
+.page-links {
+	clear: both;
+	margin: 0 0 1.5em;
+}
