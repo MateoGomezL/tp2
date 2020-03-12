@@ -35,53 +35,554 @@
 	## Galleries
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-# Normalize
+# variables
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
-# Typography
+# Extend
 --------------------------------------------------------------*/
+/* ------------------------------------------------------------------------------ */
+/* @extend  
+/* ------------------------------------------------------------------------------ */
+/* Un  @extend permet d'hériter des propriétés CSS d'un autre sélecteur           */
+/* ------------------------------------------------------------------------------ */
+/*
+.small-uppercase{
+    color: lightslategrey;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    line-height: 12px;
+    text-transform: uppercase;
+  }
+  
+  .modal-background{
+    @extend .small-uppercase;
+  }
+  
+  .product-link{
+    @extend .small-uppercase;
+  }
+  
+  .image-pattern{
+    @extend .small-uppercase;
+  }
+  */
+/*
+  .small-uppercase,
+  .modal-background,
+  .product-link,
+  .image-pattern{
+    color: lightslategrey;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    line-height: 12px;
+    text-transform: uppercase;
+  }
+  */
+/* ---------------------------------------------------------------------------- */
+/* Différence avec les mixins                                                   */
+/* ---------------------------------------------------------------------------- */
+/* 
+Il y a 2 différences:
+La règle @extend n'a pas de paramètres. Les mixins en ont.
+La règle @extend combine des sélecteurs. Les mixins non.
+*/
+/*
+La liste des propriétés est simplement répétée autant de fois que le 
+@include small-uppercase () est appelé.
+
+Un  @extend est plus efficace, car il n'écrit les propriétés 
+communes qu'une seule fois.
+On peut optimiser @extend avec un «placeholder»
+en précédent notre extension avec «%»
+*/
+.modal-background, .product-link, .image-pattern {
+  color: lightslategrey;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
+.modal-background,
+.product-link,
+.image-pattern {
+  color: lightslategrey;
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  line-height: 12px;
+  text-transform: uppercase;
+}
+
 /*--------------------------------------------------------------
-# Elements
+# Mixin
 --------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Forms
---------------------------------------------------------------*/
+/* ----------------------------------------- */
+/* ------  Un premier exemple de mixin ----- */
+/* ----------------------------------------- */
+/* ---------------------------------------- */
+/* ---------------------------------------- */
+.modal-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+  background: black;
+  opacity: 0.9;
+}
+
+/*
+  Le resultat CSS produit par SCSS
+
+  .modal-background {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: black;
+        opacity: 0.9;
+}
+
+*/
+/* ---------------------------------------------------------------------------------------------------------------------
+Réutilisabilité
+------------------------------------------------------------------------------------------------------------------------
+Le but principal d'un mixin est de rendre un ensemble de propriétés réutilisables.
+Comme les variables Sass (où vous définissez vos valeurs sur un seul emplacement), 
+les mixins Sass vous permettent de définir des propriétés sur un seul emplacement.
+Le mixin précédent peut être réutilisé dans d'autres règles:
+------------------------------------------------------------------------------------------------------------------------ */
+.modal-background {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.product-link {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.image-pattern {
+  bottom: 0;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+/* ------------------------------------------------------------------------------  
+Paramètres
+--------------------------------------------------------------------------------- 
+Les mixins étant des fonctions on peut y intégrer des paramètres, 
+Par exemple, on peut généraliser la propriété border-radius pour 
+l'adapter à plusieurs navigateurs.
+-------------------------------------------------------------------------------- */
+.box {
+  border-radius: 3px;
+}
+
+/*----------------------------------------------------------------------------------- 
+Paramètres facultatifs
+-------------------------------------------------------------------------------------
+Si vous souhaitez qu'un paramètre ait une valeur par défaut tout en offrant la possibilité
+d'en définir un occasionnellement, vous pouvez créer des paramètres facultatifs:
+------------------------------------------------------------------------------------- */
+/* Utilisation du mixin */
+div.highlighter-rouge {
+  position: relative;
+}
+
+div.highlighter-rouge:before {
+  background: #aaa;
+  color: rgba(0, 0, 0, 0.5);
+  content: "Code";
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  height: 1rem;
+  left: 0;
+  letter-spacing: 0.1em;
+  line-height: 1rem;
+  padding: 0 0.5em;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+}
+
+div.highlighter-rouge.css {
+  position: relative;
+}
+
+div.highlighter-rouge.css:before {
+  background: #0ff;
+  color: white;
+  content: "CSS";
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  height: 1rem;
+  left: 0;
+  letter-spacing: 0.1em;
+  line-height: 1rem;
+  padding: 0 0.5em;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+}
+
+div.highlighter-rouge.scss {
+  position: relative;
+}
+
+div.highlighter-rouge.scss:before {
+  background: #c69;
+  color: white;
+  content: "SCSS";
+  display: inline-block;
+  font-size: 0.6rem;
+  font-weight: 700;
+  height: 1rem;
+  left: 0;
+  letter-spacing: 0.1em;
+  line-height: 1rem;
+  padding: 0 0.5em;
+  position: absolute;
+  text-transform: uppercase;
+  top: 0;
+}
+
+/*
+    Permet de définir un pseudo élément
+*/
+/*
+    Voici un exemple d'utilisation sans aucun argument 
+    (vous verrez également ce mixin utilisé dans certains de nos 
+    autres mixins ci-dessous également).
+*/
+div.mon_pseudo {
+  display: block;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #aaa;
+}
+
+div.mon_pseudo::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  width: 1rem;
+  height: 1rem;
+  background-color: #0f0;
+}
+
+/*
+Ce mixin élimine tous les tracas de la création d'un HTML/CSS triangle 
+que vous verrez  apparaître dans la plupart des info-bulles traditionnelles, 
+le tout sans images, vous spécifiez simplement sa couleur, la taille que vous voulez, 
+la direction vers laquelle il pointera et c'est fait!
+*/
+.mon_triangle {
+  content: "";
+  display: block;
+  position: absolutr;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #0f0;
+  margin-right: -10px;
+}
+
+/* ------------------------------------------------------------------------------ */
+/*  @content                                                                      */
+/* ------------------------------------------------------------------------------ */
+/* @content permet l'extension d'un Mixin. Nous pouvons passer un bloc de code css
+   à un Mixins avec l'utilisation de @content. En bref, @content rend cela possible.
+
+   grid() est un mixin qu'on va étendre avec @content
+*/
+/* @content permet d'intégrer du code de plus */
+/*
+Et maintenant, notre grille Mixin peut prendre du code CSS intégré. 
+Un exemple de cas d'utilisation est celui des media queries. 
+Voici un exemple
+*/
+/*
+@include small {
+    // Le code css pour les petit écran serait inclus ici
+}
+
+*/
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+/* 
+le menu est contrôlé par une case à cocher
+l'état checked est testé par un le sélecteur suivant:
+*/
+#checkMenu:checked ~ ul {
+  max-height: 400px;
+}
+
+#checkMenu:checked ~ ul > li {
+  opacity: 1;
+}
+
+#checkMenu:checked ~ #btnMenu {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+  color: #dfbc49;
+}
+
+#checkMenu {
+  display: none;
+  z-index: 1;
+}
+
+#btnMenu {
+  z-index: 1;
+  display: block;
+  color: #fff;
+  font-size: 2em;
+  -webkit-transform-origin: 50% 60%;
+          transform-origin: 50% 60%;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  position: absolute;
+  width: 30px;
+  max-height: 32px;
+  -webkit-transition: -webkit-transform 1s;
+  transition: -webkit-transform 1s;
+  transition: transform 1s;
+  transition: transform 1s, -webkit-transform 1s;
+  left: 10px;
+  cursor: pointer;
+}
+
+#menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  background-color: #302f2f;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  height: 40px;
+}
+
+#menu ul {
+  width: 100vw;
+  margin-left: -10px;
+  padding-left: 20px;
+  padding-bottom: 9px;
+  margin-top: 32px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  list-style-type: none;
+  max-height: 0px;
+  height: auto;
+  -webkit-transition: max-height 1s;
+  transition: max-height 1s;
+  background-color: #302f2f;
+}
+
+#menu ul li {
+  opacity: 0;
+  -webkit-transition: opacity .5s;
+  transition: opacity .5s;
+  -webkit-transition: opacity 1s;
+  transition: opacity 1s;
+}
+
+#menu ul li:nth-of-type(1) {
+  padding-top: 10px;
+}
+
+#menu ul li:last-child {
+  padding-bottom: 15px;
+}
+
+#menu ul li a {
+  text-decoration: none;
+  display: block;
+  padding: 6px 3px 3px 30px;
+  color: #979090;
+}
+
+#menu ul li a:hover {
+  background-color: #302f2f;
+  color: #fff;
+}
+
+/*
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// ---------------------------------------------------------------- un premier point de rupture 
+// uniquement pour le menu
+*/
+@media only screen and (min-width: 600px) {
+  #btnMenu {
+    display: none;
+  }
+  #recherche {
+    position: absolute;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100px;
+            flex: 1 1 100px;
+  }
+  #recherche #txtRecherche {
+    width: 80%;
+    margin-left: 5%;
+    margin-right: 0%;
+    padding-left: 10px;
+    display: none;
+    -ms-flex-item-align: stretch;
+        -ms-grid-row-align: stretch;
+        align-self: stretch;
+    border: none;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    opacity: .8;
+    z-index: -1;
+    height: 100%;
+  }
+  #recherche #btnRecherche {
+    margin-right: 10%;
+  }
+  #menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    width: 100%;
+    position: static;
+  }
+  #menu ul {
+    /*
+                //margin-left :10%;
+                //margin : 0 auto;
+                //border : 1px solid #fff;
+                */
+    width: 80%;
+    position: static;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    max-height: 31px;
+    margin: 0;
+    height: 40px;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    opacity: 1;
+    z-index: 1;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 0px;
+            flex: 1 1 0px;
+    overflow: hidden;
+  }
+  #menu ul li {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    opacity: 1;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 17%;
+            flex: 0 1 17%;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+  #menu ul li:nth-of-type(1) {
+    padding-top: 0px;
+  }
+  #menu ul li:last-child {
+    padding-bottom: 0px;
+  }
+  #menu ul li a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+        -ms-flex: 1 1 100px;
+            flex: 1 1 100px;
+    height: 26px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding-top: 11px;
+    z-index: 1;
+  }
+  #menu ul li a:hover {
+    background-color: #302f2f;
+  }
+}
+
+.menu-toggle {
+  display: none;
+}
+
 /*--------------------------------------------------------------
-# Accessibility
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Alignments
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Clearings
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Widgets
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Content
+# site
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: aliceblue;
-}
-
-.site-header {
-  display: none;
-}
-
-.entry-footer {
-  display: none;
+  background-color: white;
 }
 
 .entry-title {
   text-align: center;
+}
+
+.entry-footer {
+  display: none;
 }
 
 .globalConteneur {
@@ -167,11 +668,5 @@ body {
 
 /*--------------------------------------------------------------
 ## Comments
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Infinite scroll
---------------------------------------------------------------*/
-/*--------------------------------------------------------------
-# Media
 --------------------------------------------------------------*/
 /*# sourceMappingURL=style.css.map */

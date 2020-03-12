@@ -1,0 +1,224 @@
+/* ----------------------------------------- */
+/* ------  Un premier exemple de mixin ----- */
+/* ----------------------------------------- */
+
+@mixin overlay() {
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0;
+  }
+
+  /* ---------------------------------------- */ 
+  // On peut ensuite utiliser un mixin 
+  // en utilisant la directive @include
+  /* ---------------------------------------- */
+
+  .modal-background{
+    @include overlay();
+    background: black;
+    opacity: 0.9;
+  }  
+
+  /*
+  Le resultat CSS produit par SCSS
+
+  .modal-background {
+        bottom: 0;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: black;
+        opacity: 0.9;
+}
+
+*/
+
+/* ---------------------------------------------------------------------------------------------------------------------
+Réutilisabilité
+------------------------------------------------------------------------------------------------------------------------
+Le but principal d'un mixin est de rendre un ensemble de propriétés réutilisables.
+Comme les variables Sass (où vous définissez vos valeurs sur un seul emplacement), 
+les mixins Sass vous permettent de définir des propriétés sur un seul emplacement.
+Le mixin précédent peut être réutilisé dans d'autres règles:
+------------------------------------------------------------------------------------------------------------------------ */
+
+.modal-background{
+    @include overlay();
+  }
+  
+  .product-link{
+    @include overlay();
+  }
+  
+  .image-pattern{
+    @include overlay();
+  }
+
+/* ------------------------------------------------------------------------------  
+Paramètres
+--------------------------------------------------------------------------------- 
+Les mixins étant des fonctions on peut y intégrer des paramètres, 
+Par exemple, on peut généraliser la propriété border-radius pour 
+l'adapter à plusieurs navigateurs.
+-------------------------------------------------------------------------------- */
+
+@mixin border-radius($radius) {
+    -webkit-border-radius: $radius;
+       -moz-border-radius: $radius;
+        -ms-border-radius: $radius;
+            border-radius: $radius;
+  }
+  .box{
+    @include border-radius(3px);
+  }
+
+/*----------------------------------------------------------------------------------- 
+Paramètres facultatifs
+-------------------------------------------------------------------------------------
+Si vous souhaitez qu'un paramètre ait une valeur par défaut tout en offrant la possibilité
+d'en définir un occasionnellement, vous pouvez créer des paramètres facultatifs:
+------------------------------------------------------------------------------------- */
+
+
+
+@mixin label($text: "Code", $background: #aaa, $color: rgba(black, 0.5)) {
+    position: relative;
+    &:before{
+      background: $background;
+      color: $color;
+      content: $text;
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      height: 1rem;
+      left: 0;
+      letter-spacing: 0.1em;
+      line-height: 1rem;
+      padding: 0 0.5em;
+      position: absolute;
+      text-transform: uppercase;
+      top: 0;
+    }
+  }
+
+ /* Utilisation du mixin */
+  div.highlighter-rouge{
+    @include label();
+    &.css{
+      @include label("CSS", #0ff, white);
+    }
+    &.scss{
+      @include label("SCSS", #c69, white);
+    }
+  }
+
+/*
+    Permet de définir un pseudo élément
+*/
+
+@mixin pseudo($display: block, $pos: absolute, $content: '') {
+    content: $content;
+    display: $display;
+    position: $pos;
+}
+
+/*
+    Voici un exemple d'utilisation sans aucun argument 
+    (vous verrez également ce mixin utilisé dans certains de nos 
+    autres mixins ci-dessous également).
+*/
+
+div.mon_pseudo {
+    display : block;
+    width : 50px;
+    height : 50px;
+    border : 1px solid #aaa;
+}
+
+div.mon_pseudo::after {
+    @include pseudo();
+    top: -1rem;
+    left: -1rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: #0f0;
+}
+
+/*
+Ce mixin élimine tous les tracas de la création d'un HTML/CSS triangle 
+que vous verrez  apparaître dans la plupart des info-bulles traditionnelles, 
+le tout sans images, vous spécifiez simplement sa couleur, la taille que vous voulez, 
+la direction vers laquelle il pointera et c'est fait!
+*/
+
+@mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false){
+    @include pseudo($pos: $position);
+    width: 0;
+    height: 0;
+    @if $round {
+        border-radius: 3px;
+    }
+    @if $direction == down {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-top: $size solid $color;
+        margin-top: 0 - round( $size / 2.5 );
+    } @else if $direction == up {
+        border-left: $size solid transparent;
+        border-right: $size solid transparent;
+        border-bottom: $size solid $color;
+        margin-bottom: 0 - round( $size / 2.5 );
+    } @else if $direction == right {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-left: $size solid $color;
+        margin-right: -$size;
+    } @else if  $direction == left {
+        border-top: $size solid transparent;
+        border-bottom: $size solid transparent;
+        border-right: $size solid $color;
+        margin-left: -$size;
+    }
+}
+// @mixin css-triangle($color, $direction, $size: 6px, $position: absolute, $round: false)/
+.mon_triangle {
+     @include css-triangle(#0f0, right, 10px, absolutr, );
+}
+/* ------------------------------------------------------------------------------ */
+/*  @content                                                                      */
+/* ------------------------------------------------------------------------------ */
+/* @content permet l'extension d'un Mixin. Nous pouvons passer un bloc de code css
+   à un Mixins avec l'utilisation de @content. En bref, @content rend cela possible.
+
+   grid() est un mixin qu'on va étendre avec @content
+*/
+/* @content permet d'intégrer du code de plus */
+@mixin grid() {
+    @content;
+}
+@include grid() {
+    // Notre code css à inclure dans le @content 
+}
+
+
+/*
+Et maintenant, notre grille Mixin peut prendre du code CSS intégré. 
+Un exemple de cas d'utilisation est celui des media queries. 
+Voici un exemple
+*/
+
+@mixin media($largeur) {
+    @media only screen and (min-width: $largeur) {
+        @content;
+    }
+}
+/*
+@include small {
+    // Le code css pour les petit écran serait inclus ici
+}
+
+*/
+

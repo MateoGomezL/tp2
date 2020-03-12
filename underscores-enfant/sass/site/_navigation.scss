@@ -1,0 +1,204 @@
+/* 
+le menu est contrôlé par une case à cocher
+l'état checked est testé par un le sélecteur suivant:
+*/
+
+#checkMenu:checked~ul {
+    max-height: 400px; // max-height peut transiter mais non height
+}
+
+#checkMenu:checked~ul>li {
+    opacity: 1;
+}
+
+#checkMenu:checked ~ #btnMenu {
+    transform: rotate(90deg) ;
+    color : rgb(223, 188, 73);
+}
+
+
+
+
+#checkMenu {
+   display : none;
+
+    z-index: 1;
+ 
+}
+
+#btnMenu {
+    z-index : 1;
+    display : block;
+    color: #fff;
+    font-size: 2em;
+    transform-origin: 50% 60%;
+    user-select: none;
+    position : absolute;
+    width : 30px;
+    max-height : 32px;
+    // border : 1px solid #aaa;
+    transition: transform 1s;
+    left :10px;
+    cursor : pointer;
+}
+
+#menu {
+    display: flex;
+    position: relative;
+    //top: 110px;
+    background-color: $couleur_grisfonce;
+    align-items: flex-start;
+    height: 40px;
+    // order : -10;
+   
+
+    ul { 
+       
+        width: 100vw;
+        margin-left: -10px;
+        padding-left: 20px;
+        padding-bottom: 9px;
+        margin-top: 32px;
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        max-height: 0px; // on cache le menu mobile
+        height: auto; // la hauteur nécessaire pour afficher uniquement les choix de menu 
+        transition: max-height 1s; // max-height sera animé
+        background-color: $couleur_grisfonce; // une couleur bg est donnée à ul
+
+        li {
+            opacity: 0;
+            transition: opacity .5s;
+            transition: opacity 1s;
+            &:nth-of-type(1){
+                padding-top : 10px;
+            }
+            &:last-child {
+                    padding-bottom: 15px;
+            }
+            a {
+                text-decoration: none;
+                display: block;
+                padding: 6px 3px 3px 30px;
+
+                color: $couleur_blanc;
+
+                &:hover {
+                    background-color: $couleur_grisfonce;
+                    color: #fff;
+                }
+
+     
+            }
+        }
+    }
+}
+/*
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+// ---------------------------------------------------------------- un premier point de rupture 
+// uniquement pour le menu
+*/
+
+@include media(600px){
+    #btnMenu {
+        display: none;
+    }
+
+#recherche {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    // border : 1px solid #fff;
+    //height: 41px;
+    //height : 100%;
+    flex : 1 1 100px;
+
+
+    #txtRecherche {
+        width : 80%;
+        margin-left: 5%;
+        margin-right : 0%;
+        padding-left: 10px;
+        display: none;
+        align-self: stretch;
+        
+
+        border: none;
+        flex: 1;
+        opacity: .8;
+        z-index: -1;
+        height : 100%
+    }
+
+    #btnRecherche {
+        margin-right : 10%;
+    }
+}
+
+    #menu {
+        display : flex;
+        flex-direction: row;
+        justify-content: center;
+        width : 100%;
+        position: static;
+        
+            ul {
+
+                /*
+                //margin-left :10%;
+                //margin : 0 auto;
+                //border : 1px solid #fff;
+                */
+                width : 80%;
+                position : static;
+                display: flex;
+                 max-height : 31px;
+                margin: 0;
+                //  margin-left: 2%;
+                height: 40px;
+                flex-direction: row;
+                justify-content: flex-start;
+                opacity: 1;
+                z-index:1;
+                flex : 1 1 0px;
+                overflow: hidden;
+                li {
+                    display : flex;
+                    flex-direction: row;
+                    opacity: 1;
+                    flex: 0 1 17%;
+                    justify-content: center;
+                   //vertical-align: center;
+                    
+                    &:nth-of-type(1) {
+                        padding-top: 0px;
+                    }
+
+                    &:last-child {
+                        padding-bottom: 0px;
+                    }
+
+                    a {
+                        display : flex;
+                        flex: 1 1 100px;
+                        height: 26px;
+                        align-items: center;
+                        justify-content: center;
+                        padding-top: 11px;
+                        z-index : 1;
+                        
+                    
+                        &:hover {
+                            background-color: $couleur_grisfonce;
+                        }
+                    }
+                }
+            }
+        }
+}
+.menu-toggle{
+    display: none;
+}
