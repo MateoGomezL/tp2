@@ -10,8 +10,14 @@
     from{
         background-color: blue;
     }
+    25%{
+        background-color: cyan;
+    }
     50%{
         background-color: blueviolet;
+    }
+    75%{
+        background-color: rgb(255, 217, 0);
     }
     to{
         background-color: blue;

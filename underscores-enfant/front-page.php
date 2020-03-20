@@ -40,7 +40,7 @@ get_header();
         echo '<div class="ConteneurNouvelles">';
         while ( $query1->have_posts() ) {
             $query1->the_post();
-            echo '<h4>' . get_the_title() . '</h4>';
+            echo '<h4 class="petitTexte">' . get_the_title() . '</h4>';
             echo the_post_thumbnail(null, "thumbnail");
 
         }
