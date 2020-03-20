@@ -385,7 +385,7 @@ l'état checked est testé par un le sélecteur suivant:
 ## Posts and pages
 --------------------------------------------------------------*/
 body {
-  background-color: #ffb5e6;
+  background-color: #b5d5ff;
 }
 
 .entry-title {
@@ -410,7 +410,7 @@ body {
 
 .globalConteneur div {
   margin-left: 2%;
-  background: repeating-linear-gradient(-45deg, #293b50, #3d477c 10px, #0b1d3f 40px);
+  background: repeating-linear-gradient(-45deg, #a3c3e7, #05166b 10px, #817f85 40px);
   color: white;
 }
 
