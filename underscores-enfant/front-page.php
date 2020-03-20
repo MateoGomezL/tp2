@@ -78,6 +78,7 @@ get_header();
                 echo '<div>'; 
                     echo '<li>' . get_the_title( $query2->post->ID ) . " - " . get_the_Date() . '</li>';
                     echo '<p>' . get_the_excerpt() . '</p>';
+                    echo '<a href="' . get_the_permalink() . '">' . "En savoir plus" . '</a>';
                 echo '</div>';
 
             echo '</div>';
