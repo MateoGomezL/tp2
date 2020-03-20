@@ -70,37 +70,37 @@ body {
 
 @-webkit-keyframes animChangeCouleur {
   from {
-    background-color: #611111;
+    background-color: #ffe693;
   }
   25% {
-    background-color: #001aff;
+    background-color: #2d5188;
   }
   50% {
-    background-color: #2be2c3;
+    background-color: #882d2d;
   }
   75% {
-    background-color: #00ff15;
+    background-color: #2d5188;
   }
   to {
-    background-color: #611111;
+    background-color: #ffe693;
   }
 }
 
 @keyframes animChangeCouleur {
   from {
-    background-color: #611111;
+    background-color: #ffe693;
   }
   25% {
-    background-color: #001aff;
+    background-color: #2d5188;
   }
   50% {
-    background-color: #2be2c3;
+    background-color: #882d2d;
   }
   75% {
-    background-color: #00ff15;
+    background-color: #2d5188;
   }
   to {
-    background-color: #611111;
+    background-color: #ffe693;
   }
 }
 
