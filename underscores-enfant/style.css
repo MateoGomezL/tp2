@@ -410,7 +410,7 @@ body {
 
 .globalConteneur div {
   margin-left: 2%;
-  background: repeating-linear-gradient(-45deg, #a3c3e7, #05166b 10px, #817f85 40px);
+  background: repeating-linear-gradient(-45deg, #313131, black 10px, #313131 40px);
   color: white;
 }
 
