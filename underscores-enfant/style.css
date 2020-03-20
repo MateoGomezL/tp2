@@ -235,7 +235,7 @@ l'état checked est testé par un le sélecteur suivant:
   text-decoration: none;
   display: block;
   padding: 6px 3px 3px 30px;
-  color: white;
+  color: black;
 }
 
 #menu ul li a:hover {
@@ -466,7 +466,6 @@ body {
 }
 
 .wp-block-cgb-block-my-block {
-  background-color: #7c4c9c;
   -webkit-animation: animChangeCouleur 3s infinite;
           animation: animChangeCouleur 3s infinite;
   color: white;
