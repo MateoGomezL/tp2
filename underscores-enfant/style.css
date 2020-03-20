@@ -187,7 +187,7 @@ l'état checked est testé par un le sélecteur suivant:
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  background-color: #302f2f;
+  background-color: #5f5e99;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -212,7 +212,7 @@ l'état checked est testé par un le sélecteur suivant:
   height: auto;
   -webkit-transition: max-height 1s;
   transition: max-height 1s;
-  background-color: #302f2f;
+  background-color: #5f5e99;
 }
 
 #menu ul li {
@@ -235,11 +235,11 @@ l'état checked est testé par un le sélecteur suivant:
   text-decoration: none;
   display: block;
   padding: 6px 3px 3px 30px;
-  color: #979090;
+  color: white;
 }
 
 #menu ul li a:hover {
-  background-color: #302f2f;
+  background-color: #5f5e99;
   color: #fff;
 }
 
@@ -370,7 +370,7 @@ l'état checked est testé par un le sélecteur suivant:
     z-index: 1;
   }
   #menu ul li a:hover {
-    background-color: #302f2f;
+    background-color: #5f5e99;
   }
 }
 
@@ -452,11 +452,11 @@ body {
 }
 
 .tableau-grid h3 {
-  border: 5px solid #0e1938;
+  border: 5px solid #380e38;
   padding: 33px;
   margin: 10px;
-  background-color: #627cc5;
-  color: white;
+  background-color: #5c265e;
+  color: #97d8fd;
 }
 
 .post-thumbnail {
