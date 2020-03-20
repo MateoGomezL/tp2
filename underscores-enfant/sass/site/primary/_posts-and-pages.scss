@@ -58,11 +58,13 @@ body{
 }
 
 .post-thumbnail{
-    text-align: center;
+	text-align: center;
+	animation: animImage 2s forwards;
 }
 
 .wp-block-cgb-block-my-block{
-    background-color: rgb(124, 76, 156);
+	background-color: rgb(124, 76, 156);
+	animation: animChangeCouleur 3s infinite;
     color: white;
 }
 

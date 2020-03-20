@@ -1,0 +1,19 @@
+@keyframes animImage{
+    from{
+        transform: translateX(110%) skewX(-20deg);
+    }
+    to{
+        transform: translate(0,0);
+    }
+}
+@keyframes animChangeCouleur{
+    from{
+        background-color: blue;
+    }
+    50%{
+        background-color: blueviolet;
+    }
+    to{
+        background-color: blue;
+    }
+}

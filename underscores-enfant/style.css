@@ -38,6 +38,54 @@
 # variables
 --------------------------------------------------------------*/
 /*--------------------------------------------------------------
+# animations
+--------------------------------------------------------------*/
+@-webkit-keyframes animImage {
+  from {
+    -webkit-transform: translateX(110%) skewX(-20deg);
+            transform: translateX(110%) skewX(-20deg);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+@keyframes animImage {
+  from {
+    -webkit-transform: translateX(110%) skewX(-20deg);
+            transform: translateX(110%) skewX(-20deg);
+  }
+  to {
+    -webkit-transform: translate(0, 0);
+            transform: translate(0, 0);
+  }
+}
+
+@-webkit-keyframes animChangeCouleur {
+  from {
+    background-color: blue;
+  }
+  50% {
+    background-color: blueviolet;
+  }
+  to {
+    background-color: blue;
+  }
+}
+
+@keyframes animChangeCouleur {
+  from {
+    background-color: blue;
+  }
+  50% {
+    background-color: blueviolet;
+  }
+  to {
+    background-color: blue;
+  }
+}
+
+/*--------------------------------------------------------------
 # Extend
 --------------------------------------------------------------*/
 /* ------------------------------------------------------------------------------ */
@@ -648,10 +696,14 @@ body {
 
 .post-thumbnail {
   text-align: center;
+  -webkit-animation: animImage 2s forwards;
+          animation: animImage 2s forwards;
 }
 
 .wp-block-cgb-block-my-block {
   background-color: #7c4c9c;
+  -webkit-animation: animChangeCouleur 3s infinite;
+          animation: animChangeCouleur 3s infinite;
   color: white;
 }
 
