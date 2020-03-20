@@ -452,11 +452,11 @@ body {
 }
 
 .tableau-grid h3 {
-  border: 5px solid #380e38;
+  border: 5px solid #474339;
   padding: 33px;
   margin: 10px;
-  background-color: #5c265e;
-  color: #97d8fd;
+  background-color: #ffbb00;
+  color: black;
 }
 
 .post-thumbnail {
