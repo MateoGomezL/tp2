@@ -624,13 +624,26 @@ body {
   min-height: 100px;
 }
 
+.TitreEvenements {
+  text-align: center;
+}
+
 .tableau-grid {
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: 1fr 1fr 1fr;
       grid-template-columns: 1fr 1fr 1fr;
-  -ms-grid-rows: (1fr)[31];
-      grid-template-rows: repeat(31, 1fr);
+  -ms-grid-rows: (1fr)[1];
+      grid-template-rows: repeat(1, 1fr);
+  margin: 10px;
+}
+
+.tableau-grid h3 {
+  border: 5px solid #0e1938;
+  padding: 33px;
+  margin: 10px;
+  background-color: #627cc5;
+  color: white;
 }
 
 .post-thumbnail {

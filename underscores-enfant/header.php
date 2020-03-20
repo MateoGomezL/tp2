@@ -29,8 +29,8 @@
 			<input id="checkMenu" type="checkbox">
 			<label id="btnMenu" for="checkMenu">&#9776;</label>
 			<ul class='global'>
-				<li><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
+				<li><a href="/Tp2Veille/">accueil</a></li>
+				<li><a href="/Tp2Veille/category/evenement">grille</a></li>
 				<li><a href="#">3</a></li>
 				<li><a href="#">4</a></li>
 				<li><a href="#">5</a></li>
