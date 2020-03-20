@@ -187,7 +187,7 @@ l'état checked est testé par un le sélecteur suivant:
   display: -ms-flexbox;
   display: flex;
   position: relative;
-  background-color: #5f5e99;
+  background-color: #c59054;
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: flex-start;
@@ -212,7 +212,7 @@ l'état checked est testé par un le sélecteur suivant:
   height: auto;
   -webkit-transition: max-height 1s;
   transition: max-height 1s;
-  background-color: #5f5e99;
+  background-color: #c59054;
 }
 
 #menu ul li {
@@ -239,7 +239,7 @@ l'état checked est testé par un le sélecteur suivant:
 }
 
 #menu ul li a:hover {
-  background-color: #5f5e99;
+  background-color: #c59054;
   color: #fff;
 }
 
@@ -370,7 +370,7 @@ l'état checked est testé par un le sélecteur suivant:
     z-index: 1;
   }
   #menu ul li a:hover {
-    background-color: #5f5e99;
+    background-color: #c59054;
   }
 }
 
